@@ -1,11 +1,9 @@
 package cc.yuerblog;
 
 import cc.yuerblog.mr.AvroMR;
+import cc.yuerblog.mr.RawMR;
 import cc.yuerblog.mr.SequenceMR;
 import org.apache.hadoop.conf.Configuration;
-import cc.yuerblog.mr.RawMR;
-
-import java.io.IOException;
 
 public class Main {
     // MapReduce官方: https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html
@@ -17,7 +15,7 @@ public class Main {
     // reducer输入key和value是writeable的
     // reducer输出的文件格式需要通过outputformat指定，其作用是兼容key,value到具体文件格式，比如输出为avro container file格式。
 
-    public static void main(String []args) {
+    public static void main(String[] args) {
         Configuration conf = new Configuration();
 
         try {
