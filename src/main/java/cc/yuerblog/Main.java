@@ -1,6 +1,7 @@
 package cc.yuerblog;
 
 import cc.yuerblog.mr.AvroMR;
+import cc.yuerblog.mr.OrcMR;
 import cc.yuerblog.mr.RawMR;
 import cc.yuerblog.mr.SequenceMR;
 import org.apache.hadoop.conf.Configuration;
@@ -30,6 +31,10 @@ public class Main {
             // Avro的MR
             AvroMR avroMR = new AvroMR();
             avroMR.run(conf);
+
+            // Orc的MR
+            OrcMR orcMR = new OrcMR();
+            orcMR.run(conf);
         } catch (Exception e) {
             e.printStackTrace();
         }

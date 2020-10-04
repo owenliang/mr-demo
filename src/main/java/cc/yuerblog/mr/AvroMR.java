@@ -20,6 +20,10 @@ public class AvroMR {
     private static class Mapper extends org.apache.hadoop.mapreduce.Mapper<AvroKey<GenericData.Record>, NullWritable, AvroKey<GenericData.Record>, AvroValue<Long>> {
         @Override
         protected void map(AvroKey<GenericData.Record> key, NullWritable value, Context context) throws IOException, InterruptedException {
+            Integer id = (Integer)key.datum().get("id");
+            String name = (String)key.datum().get("name");
+            System.out.printf("%d -> %s", id, name);
+
             Long val = new Long(1);
             context.write(key, new AvroValue<Long>(val));   // avro record -> 1次
         }
